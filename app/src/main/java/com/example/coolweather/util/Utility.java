@@ -48,8 +48,8 @@ public class Utility {
                 for (int i = 0; i < allCities.length(); i++) {
                     JSONObject cityObject = allCities.getJSONObject(i);
                     City city = new City();
-                    city.setCityCode(cityObject.getInt("id"));
                     city.setCityName(cityObject.getString("name"));
+                    city.setCityCode(cityObject.getInt("id"));
                     city.setProvinceId(provinceId);
                     city.save();//将数据存储到数据库中
                 }
@@ -65,16 +65,16 @@ public class Utility {
     /**
      * 解析和处理服务器返回的县级数据
      */
-    public static boolean handleCountyResponse(String response, int CityId) {
+    public static boolean handleCountyResponse(String response, int cityId) {
         if (!TextUtils.isEmpty(response)) {
             try {
                 JSONArray allCounties = new JSONArray(response);
                 for (int i = 0; i < allCounties.length(); i++) {
                     JSONObject countyObject = allCounties.getJSONObject(i);
                     County county = new County();
-                    county.setWeatherId(countyObject.getString("weather_id"));
                     county.setCountyName(countyObject.getString("name"));
-                    county.setCityId(CityId);
+                    county.setWeatherId(countyObject.getString("weather_id"));
+                    county.setCityId(cityId);
                     county.save();//将数据存储到数据库中
                 }
                 return true;
