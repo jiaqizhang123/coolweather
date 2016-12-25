@@ -2,7 +2,8 @@ package com.example.coolweather.db;
 
 import org.litepal.crud.DataSupport;
 
-/**Province实体类
+/**
+ * Province实体类
  * Created by Administrator on 2016/12/24.
  */
 
@@ -19,6 +20,15 @@ public class Province extends DataSupport {
         this.id = id;
     }
 
+    public void setProvinceName(String provinceName) {
+        this.provinceName = provinceName;
+    }
+
+    public String getProvinceName() {
+        return provinceName;
+    }
+
+
     public int getProvinceCode() {
         return provinceCode;
     }
@@ -27,12 +37,5 @@ public class Province extends DataSupport {
         this.provinceCode = provinceCode;
     }
 
-    public String getProvinceName() {
-        return provinceName;
-    }
 
-
-    public void setProvinceName(String provinceName) {
-        this.provinceName = provinceName;
-    }
 }
